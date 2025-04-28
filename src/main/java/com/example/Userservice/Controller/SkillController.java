@@ -44,7 +44,7 @@ public class SkillController {
         return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK.value(), "List of skills", skills));
     }
 
-    
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<SkillDTO> createOrUpdateSkill(@RequestBody SkillDTO skillDTO,
                                                         @RequestParam(required = false) UUID id) {
